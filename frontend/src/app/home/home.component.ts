@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data: { token: string }) => {
         const token = data.token;
         this.http
-          .get('http://localhost:9000/resource', {
+          .get('http://localhost:9000', {
             headers: {'X-Auth-Token': token}
           })
           .subscribe((data1: {
