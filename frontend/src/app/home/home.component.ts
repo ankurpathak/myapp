@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private app: AppService, private http: HttpClient) {
     // this.http.get('resource').subscribe((data: {
-    /* this.http.get('http://localhost:9000/resource').subscribe((data: {
+    /* this.http.get('resource').subscribe((data: {
        id: string,
        content: string
      }) => this.greeting = data); */
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data: { token: string }) => {
         const token = data.token;
         this.http
-          .get('http://localhost:9000/resource', {
+          .get('resource', {
             headers: {'X-Auth-Token': token}
           })
           .subscribe((data1: {
