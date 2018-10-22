@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {finalize} from 'rxjs/operators';
+import {AppService} from './app.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +10,16 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Demo';
-  // greeting = {'id': 'XXX', 'content': 'Hello World'};
-  greeting = {};
-  constructor(private http: HttpClient) {
-    this.http.get('resource').subscribe(data => {
-      return this.greeting = data;
-    });
+  constructor(private http: HttpClient, private app: AppService, private router: Router) {
   }
+
+  logout() {
+    this.http.post('logout', {}).pipe(
+      finalize(() => {
+          this.app.authenticated = false;
+          this.router.navigateByUrl('/login');
+      })
+    ).subscribe();
+  }
+
 }

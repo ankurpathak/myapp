@@ -1,9 +1,13 @@
-<div style="text-align:center"class="container">
+<div class="container">
+  <div class="nav nav-pills">
+    <li class="nav-item"><a class="nav-link" routerLinkActive routerLink="/home">Home</a></li>
+    <li class="nav-item"><a class="nav-link" routerLinkActive routerLink="/login">Login</a></li>
+    <li class="nav-item"><a class="nav-link" (click)="logout()">Logout</a></li>
+  </div>
   <h1>
     Welcome {{title}}!
   </h1>
   <div class="container">
-    <p>Id: <span><b>{{greeting.id}}</b></span></p>
-    <p>Message: <span>{{greeting.content}}!</span></p>
+    <router-outlet></router-outlet>
   </div>
 </div>
