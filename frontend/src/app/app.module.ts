@@ -37,7 +37,7 @@ export class XhrInterceptor implements HttpInterceptor {
     LoginComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {useHash : true}),
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,

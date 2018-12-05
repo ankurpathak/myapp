@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>frontend</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <dependencies>
@@ -56,12 +55,13 @@
         </executions>
       </plugin>
     </plugins>
+    <!--
     <resources>
       <resource>
         <directory>dist/frontend</directory>
         <targetPath>META-INF/resources</targetPath>
       </resource>
-    </resources>
+    </resources> -->
   </build>
 
 
